@@ -26,7 +26,7 @@ public class JobMonitor {
     /**
      * Monitors the configured directory for appearance of new files.  When a new file appears, reads all lines
      * and feeds them to <code>callback</code>.
-     * @param callback The callback to proccess the contents of the file, given as a list of lines.
+     * @param callback The callback to process the contents of the file, given as a list of lines.
      */
     public void monitor(Consumer<List<String>> callback) {
         try {

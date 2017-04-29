@@ -10,10 +10,20 @@ import java.util.function.Consumer;
 public class DirectoryMonitor {
     private File directory;
 
+    /**
+     * Create a new DirectoryMonitor that monitors the given directory.
+     * @param directoryName The directory to monitor.
+     */
     public DirectoryMonitor(String directoryName) {
         this.directory = new File(directoryName);
     }
 
+    /**
+     * Monitors the configured directory for appearance of new files.  When a new file appears, reads all lines
+     * and feeds them to <code>callback</code>.
+     * @param callback The callback to process the contents of the file, given as a list of lines.
+     * @throws InterruptedException
+     */
     public void monitor(Consumer<File> callback) throws InterruptedException {
         while(true) {
             File[] files = directory.listFiles();
