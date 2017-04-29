@@ -10,7 +10,6 @@ public class JobMonitorTest {
     @Test
     public void testJobMonitor() {
         JobMonitor jobMonitor = new JobMonitor("/tmp/monitor");
-        // blah
         jobMonitor.monitor(lines -> lines.forEach(System.out::println));
     }
 }
