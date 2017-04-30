@@ -9,12 +9,7 @@ import sun.misc.SignalHandler;
  */
 public class SignalTest {
     public static void main(String[] args) {
-        Signal.handle(new Signal("HUP"), new SignalHandler() {
-            @Override
-            public void handle(Signal signal) {
-                System.out.println("Reloading");
-            }
-        });
+        Signal.handle(new Signal("HUP"), signal -> System.out.println("Reloading"));
         while(true) {
             try {
                 Thread.sleep(100);
