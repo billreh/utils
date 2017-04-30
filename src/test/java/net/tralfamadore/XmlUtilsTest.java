@@ -9,12 +9,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.StringWriter;
 
 /**
- * Class: JaxBTest
+ * Class: XmlUtilsTest
  * Created by billreh on 4/29/17.
  */
-public class JaxBTest {
+public class XmlUtilsTest {
     @Test
-    public void testJaxB() throws Exception {
+    public void testXmlUtils() throws Exception {
         Person person = new Person();
         person.setId(0L);
         person.setName("Mr. Dog");
@@ -26,7 +26,7 @@ public class JaxBTest {
         marshaller.marshal(person, stringWriter);
         System.out.println(stringWriter.toString());
 
-        System.out.println(JaxUtils.toXxml(person));
+        System.out.println(XmlUtils.toXxml(person));
     }
 
     @XmlRootElement

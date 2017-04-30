@@ -18,8 +18,10 @@ public class SignalTest {
             System.exit(0);
         };
         Signal.handle(new Signal("HUP"), hupHandler);
-        Signal.handle(new Signal("INT"), SignalHandler.SIG_IGN);
         Signal.handle(new Signal("TERM"), termHandler);
+        Signal.handle(new Signal("INT"), SignalHandler.SIG_IGN);
+        Signal.handle(new Signal("QUIT"), SignalHandler.SIG_IGN);
+        Signal.handle(new Signal("ABRT"), SignalHandler.SIG_IGN);
 
         while (true) {
             try {
