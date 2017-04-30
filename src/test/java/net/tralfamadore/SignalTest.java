@@ -9,11 +9,17 @@ import sun.misc.SignalHandler;
  */
 public class SignalTest {
     public static void main(String[] args) {
-        SignalHandler signalHandler = signal -> {
+        SignalHandler hupHandler = signal -> {
             System.out.println("Reloading...");
             ApplicationProperties.getInstance().reload();
         };
-        Signal.handle(new Signal("HUP"), signalHandler);
+        SignalHandler termHandler = signal -> {
+            System.out.println("Exiting gracefully");
+            System.exit(0);
+        };
+        Signal.handle(new Signal("HUP"), hupHandler);
+        Signal.handle(new Signal("INT"), SignalHandler.SIG_IGN);
+        Signal.handle(new Signal("TERM"), termHandler);
 
         while (true) {
             try {
