@@ -106,6 +106,13 @@ public class ApplicationProperties {
     }
 
     /**
+     * Reload all properties files.
+     */
+    public void reload() {
+        propertiesCache.invalidateAll();
+    }
+
+    /**
      * Read in all of the properties from a properties file.
      * @param baseName The name of the properties file, without the .properties extension.
      * @return A Properties object with properties read from the given properties file.
