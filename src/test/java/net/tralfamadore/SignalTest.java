@@ -9,8 +9,13 @@ import sun.misc.SignalHandler;
  */
 public class SignalTest {
     public static void main(String[] args) {
-        Signal.handle(new Signal("HUP"), signal -> System.out.println("Reloading"));
-        while(true) {
+        SignalHandler signalHandler = signal -> {
+            System.out.println("Reloading...");
+            ApplicationProperties.getInstance().reload();
+        };
+        Signal.handle(new Signal("HUP"), signalHandler);
+
+        while (true) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
