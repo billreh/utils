@@ -1,13 +1,11 @@
 package net.tralfamadore;
 
-import java.util.Comparator;
-
 /**
  * Class: Tuple2
  * Created by billreh on 12/23/16.
  */
+@SuppressWarnings({"WeakerAccess", "SameParameterValue"})
 public class Tuple2<T,U> {
-    private Comparator<? super T> comparator = null;
     private T value1;
     private U value2;
 
@@ -36,7 +34,7 @@ public class Tuple2<T,U> {
     }
 
     public Tuple2<U,T> swap() {
-        return new Tuple2<U, T>(value2, value1);
+        return new Tuple2<>(value2, value1);
     }
 
     public Object produceElement(int i) {
@@ -57,6 +55,7 @@ public class Tuple2<T,U> {
 
         Tuple2<?, ?> tuple2 = (Tuple2<?, ?>) o;
 
+        //noinspection SimplifiableIfStatement
         if (value1 != null ? !value1.equals(tuple2.value1) : tuple2.value1 != null) return false;
         return value2 != null ? value2.equals(tuple2.value2) : tuple2.value2 == null;
     }

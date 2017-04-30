@@ -7,6 +7,7 @@ import java.util.function.Consumer;
  * Class: DirectoryMonitor
  * Created by billreh on 4/29/17.
  */
+@SuppressWarnings("WeakerAccess")
 public class DirectoryMonitor {
     private File directory;
 
@@ -25,6 +26,7 @@ public class DirectoryMonitor {
      * @throws InterruptedException If interrupted in sleep call.
      */
     public void monitor(Consumer<File> callback) throws InterruptedException {
+        //noinspection InfiniteLoopStatement
         while(true) {
             File[] files = directory.listFiles();
             if(files != null && files.length > 0) {

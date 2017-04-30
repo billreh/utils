@@ -4,6 +4,7 @@ package net.tralfamadore;
  * Class: StringUtils
  * Created by billreh on 4/28/17.
  */
+@SuppressWarnings("WeakerAccess")
 public class StringUtils {
     public static String trim(String str) {
         if(str == null)

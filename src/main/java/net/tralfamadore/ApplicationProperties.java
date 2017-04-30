@@ -68,23 +68,6 @@ public class ApplicationProperties {
     }
 
     /**
-     * Get a properties object from the default properties file.
-     * @return The property value, or Optional.empty if not found.
-     */
-    public Properties getProperties() {
-        return getProperties(defaultProps);
-    }
-
-    /**
-     * Get a properties object from the specified properties file.
-     * @param propertiesFile The name of the properties file to use, without the .properties extension.
-     * @return The property value, or Optional.empty if not found.
-     */
-    public Properties getProperties(String propertiesFile) {
-        return propertiesCache.getUnchecked(propertiesFile);
-    }
-
-    /**
      * Get a property as a boolean from the default properties file.
      * @param name The property name to look up.
      * @return True if the property is found and is equal to "true" (case insensitive).  False otherwise.

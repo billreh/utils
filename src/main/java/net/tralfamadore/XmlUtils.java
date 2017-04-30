@@ -10,6 +10,7 @@ import java.io.StringWriter;
  * Class: XmlUtils
  * Created by billreh on 4/29/17.
  */
+@SuppressWarnings("WeakerAccess")
 public class XmlUtils {
     public static String toXxml(Object bean) {
         StringWriter stringWriter = null;

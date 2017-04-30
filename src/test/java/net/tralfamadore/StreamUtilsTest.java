@@ -33,6 +33,6 @@ public class StreamUtilsTest {
         List<String> words = Arrays.asList("here", "are", "several", "words");
 
         List<String> result = StreamUtils.map(words, String::toUpperCase);
-        assertEquals("ARE", result.get(0));
+        assertEquals("ARE", result.get(1));
     }
 }

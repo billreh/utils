@@ -6,6 +6,7 @@ import com.google.common.eventbus.EventBus;
  * Class: TheEventBus
  * Created by billreh on 4/28/17.
  */
+@SuppressWarnings("unused")
 public class TheEventBus {
     private EventBus eventBus;
 

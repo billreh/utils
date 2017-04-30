@@ -17,6 +17,7 @@ public class JsonUtilsTest {
         System.out.println(JsonUtils.toJson(moo));
     }
 
+    @SuppressWarnings({"WeakerAccess", "unused", "SameParameterValue"})
     class Moo {
         private String moo;
         private long blah;

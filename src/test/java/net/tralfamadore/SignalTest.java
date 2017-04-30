@@ -23,6 +23,7 @@ public class SignalTest {
         Signal.handle(new Signal("QUIT"), SignalHandler.SIG_IGN);
         Signal.handle(new Signal("ABRT"), SignalHandler.SIG_IGN);
 
+        //noinspection InfiniteLoopStatement
         while (true) {
             try {
                 Thread.sleep(100);

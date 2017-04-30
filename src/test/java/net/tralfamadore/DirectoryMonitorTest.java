@@ -1,9 +1,5 @@
 package net.tralfamadore;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,37 +12,39 @@ import java.util.function.Consumer;
  * Class: DirectoryMonitorTest
  * Created by billreh on 4/29/17.
  */
+@SuppressWarnings("unused")
 public class DirectoryMonitorTest {
-    private ExecutorService executorService;
+    private static ExecutorService executorService;
 
-    @Before
-    public void setUp() {
+    public static void setUp() {
         executorService = Executors.newFixedThreadPool(10);
     }
 
-    @After
-    public void tearDown() {
+    public static void tearDown() {
         executorService.shutdown();
     }
 
-    @Test
-    public void testDirectoryMonitor() throws Exception {
+    public static void main() {
+        setUp();
         DirectoryMonitor directoryMonitor = new DirectoryMonitor("/tmp/monitor");
         Consumer<File> fileProcessor = file -> {
             try {
                 System.out.println("Processing " + file.getName());
                 List<String> lines = Files.readAllLines(file.toPath());
-                executorService.submit(() -> {
-                    parseLines(lines);
-                });
+                executorService.submit(() -> parseLines(lines));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         };
-        directoryMonitor.monitor(fileProcessor);
+        try {
+            directoryMonitor.monitor(fileProcessor);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        tearDown();
     }
 
-    private void parseLines(List<String> lines) {
+    private static void parseLines(List<String> lines) {
         lines.forEach(System.out::println);
     }
 }

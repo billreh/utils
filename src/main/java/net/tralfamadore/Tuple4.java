@@ -4,6 +4,7 @@ package net.tralfamadore;
  * Class: Tuple4
  * Created by billreh on 12/23/16.
  */
+@SuppressWarnings("unused")
 public class Tuple4<T,U,V,W> {
     private T value1;
     private U value2;
@@ -76,6 +77,7 @@ public class Tuple4<T,U,V,W> {
 
         if (value1 != null ? !value1.equals(tuple4.value1) : tuple4.value1 != null) return false;
         if (value2 != null ? !value2.equals(tuple4.value2) : tuple4.value2 != null) return false;
+        //noinspection SimplifiableIfStatement
         if (value3 != null ? !value3.equals(tuple4.value3) : tuple4.value3 != null) return false;
         return value4 != null ? value4.equals(tuple4.value4) : tuple4.value4 == null;
     }
