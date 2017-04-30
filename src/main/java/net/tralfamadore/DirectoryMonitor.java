@@ -30,7 +30,9 @@ public class DirectoryMonitor {
             if(files != null && files.length > 0) {
                 for (File file : files) {
                     callback.accept(file);
-                    file.delete();
+                    if(!file.delete()) {
+                        throw new RuntimeException("Can't delete file " + file.getName());
+                    }
                 }
             }
             Thread.sleep(100);
