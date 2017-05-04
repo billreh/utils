@@ -7,7 +7,6 @@ import java.util.function.Consumer;
  * Class: DirectoryMonitor
  * Created by billreh on 4/29/17.
  */
-@SuppressWarnings("WeakerAccess")
 public class DirectoryMonitor {
     private File directory;
 

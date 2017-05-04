@@ -4,7 +4,6 @@ package net.tralfamadore;
  * Class: Tuple4
  * Created by billreh on 12/23/16.
  */
-@SuppressWarnings("unused")
 public class Tuple4<T,U,V,W> {
     private T value1;
     private U value2;

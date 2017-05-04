@@ -4,7 +4,6 @@ package net.tralfamadore;
  * Class: Tuple3
  * Created by billreh on 12/23/16.
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class Tuple3<T,U,V> {
     private T value1;
     private U value2;

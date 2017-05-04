@@ -12,7 +12,6 @@ import java.util.function.Consumer;
  * Class: DirectoryMonitorTest
  * Created by billreh on 4/29/17.
  */
-@SuppressWarnings("unused")
 public class DirectoryMonitorTest {
     private static ExecutorService executorService;
 

@@ -29,7 +29,7 @@ public class XmlUtilsTest {
         System.out.println(XmlUtils.toXxml(person));
     }
 
-    @SuppressWarnings({"WeakerAccess", "unused", "SameParameterValue"})
+    @SuppressWarnings("SameParameterValue")
     @XmlRootElement
     static class Person {
         private Long id;

@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
  * Class: StreamUtils
  * Created by billreh on 4/28/17.
  */
-@SuppressWarnings("WeakerAccess")
 public class StreamUtils {
     public static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
         if(list == null)

@@ -9,6 +9,7 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * Test DateUtils.
  * Created by wreh on 5/2/2017.
  */
 public class DateUtilsTest {

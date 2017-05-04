@@ -32,5 +32,8 @@ public class TestTuple2 {
         tuples.add(new Tuple2<>("B", 2));
         tuples.add(new Tuple2<>("C", 1));
         tuples.forEach(System.out::println);
+        Tuple2<String,Integer> tuple21 = new Tuple2<>();
+        tuple21.setValue1("Moo");
+        tuple21.setValue2(77);
     }
 }

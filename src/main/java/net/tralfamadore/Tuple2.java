@@ -4,7 +4,6 @@ package net.tralfamadore;
  * Class: Tuple2
  * Created by billreh on 12/23/16.
  */
-@SuppressWarnings({"WeakerAccess", "SameParameterValue"})
 public class Tuple2<T,U> {
     private T value1;
     private U value2;

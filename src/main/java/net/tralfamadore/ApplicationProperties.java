@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
  * Created by wreh on 4/28/2017.
  * Properties file access through a singleton.
  */
-@SuppressWarnings("WeakerAccess")
 public class ApplicationProperties {
     /** The default properties file.  It will be projectName.properties */
     private String defaultProps;

@@ -10,7 +10,6 @@ import java.util.function.Consumer;
  * Class: JobMonitor
  * Created by billreh on 4/29/17.
  */
-@SuppressWarnings("WeakerAccess")
 public class JobMonitor {
     private static ExecutorService executorService;
     private DirectoryMonitor directoryMonitor;

@@ -7,7 +7,6 @@ import java.util.Date;
  * Utilities class for dealing with dates.
  * Created by wreh on 5/2/2017.
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class DateUtils {
     public static Date toDate(LocalDate localDate) {
         return toDate(localDate, ZoneId.systemDefault());

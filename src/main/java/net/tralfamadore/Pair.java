@@ -11,7 +11,6 @@ import java.util.*;
  *
  * @param <T> The pair type.
  */
-@SuppressWarnings({"WeakerAccess", "unused"})
 public class Pair<T> {
     protected T value1;
     protected T value2;
