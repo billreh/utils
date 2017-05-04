@@ -1,0 +1,16 @@
+Keep in mind that a java.util.Date is a misnomer as it represents a date plus a time-of-day, in UTC. In contrast, the LocalDate class represents a date-only value without time-of-day and without time zone.
+
+Going from java.util.Date to java.time means converting to the equivalent class of java.time.Instant. The Instant class represents a moment on the timeline in UTC with a resolution of nanoseconds (up to nine (9) digits of a decimal fraction).
+
+Instant instant = myUtilDate.toInstant();
+The LocalDate class represents a date-only value without time-of-day and without time zone.
+
+A time zone is crucial in determining a date. For any given moment, the date varies around the globe by zone. For example, a few minutes after midnight in Paris France is a new day while still “yesterday” in Montréal Québec.
+
+So we need to move that Instant into a time zone. We apply ZoneId to get a ZonedDateTime.
+
+ZoneId z = ZoneId.of( "America/Montreal" );
+ZonedDateTime zdt = instant.atZone( z );
+From there, ask for a date-only, a LocalDate.
+
+LocalDate ld = zdt.toLocalDate();

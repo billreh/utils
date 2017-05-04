@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.util.*;
 
@@ -23,7 +24,10 @@ public class TestPair {
 
     @Test
     public void testReadFileAsPairs() throws IOException {
-        List<String[]> words = Files.lines(new File("/Users/billreh/Downloads/jasypt-1.9.2/NOTICE.txt").toPath()).
+        final ClassLoader classLoader = getClass().getClassLoader();
+        final URL resource = classLoader.getResource("words.txt");
+        final File file = new File(resource.getFile());
+        List<String[]> words = Files.lines(file.toPath()).
                 map(l -> l.split("\\s+")).collect(toList());
         List<Pair> pairs = new ArrayList<>();
         words.forEach(w -> pairs.addAll(Pair.from(Arrays.asList(w))));
