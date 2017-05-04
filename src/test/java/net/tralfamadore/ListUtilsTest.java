@@ -16,9 +16,9 @@ import static org.junit.Assert.assertTrue;
  */
 public class ListUtilsTest {
     @Test
-    public void testPartitionList() throws Exception {
+    public void testPartition() throws Exception {
         List<Integer> numbers = IntStream.range(0, 25).boxed().collect(Collectors.toList());
-        List<List<Integer>> numberLists = ListUtils.partitionList(numbers, 10);
+        List<List<Integer>> numberLists = ListUtils.partition(numbers, 10);
 
         // check list sizes
         assertEquals(10, numberLists.get(0).size());
@@ -34,12 +34,12 @@ public class ListUtilsTest {
         assertEquals(24, (int)numberLists.get(2).get(4));
 
         // check that passing a null returns an empty list
-        assertTrue(ListUtils.partitionList(null, 10).size() == 0);
+        assertTrue(ListUtils.partition(null, 10).size() == 0);
 
         // check that it throws a RuntimeException when chunkSize is < 1
         boolean caught = false;
         try {
-            ListUtils.partitionList(null, 0);
+            ListUtils.partition(null, 0);
         } catch (RuntimeException e) {
             caught = true;
         }

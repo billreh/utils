@@ -16,7 +16,7 @@ public class ListUtils {
      * @param chunkSize The size of each list.
      * @return A list of lists.
      */
-    public static <T> List<List<T>> partitionList(List<T> list, int chunkSize) {
+    public static <T> List<List<T>> partition(List<T> list, int chunkSize) {
         List<List<T>> results = new ArrayList<>();
 
         if(chunkSize < 1)
