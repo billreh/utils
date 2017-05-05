@@ -26,6 +26,7 @@ public class TestPair {
     public void testReadFileAsPairs() throws IOException {
         final ClassLoader classLoader = getClass().getClassLoader();
         final URL resource = classLoader.getResource("words.txt");
+        assert resource != null;
         final File file = new File(resource.getFile());
         List<String[]> words = Files.lines(file.toPath()).
                 map(l -> l.split("\\s+")).collect(toList());
