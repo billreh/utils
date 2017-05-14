@@ -20,7 +20,7 @@ public class DirectoryMonitor {
 
     /**
      * Monitors the configured directory for appearance of new files.  When a new file appears,
-     * feeds it to <code>callback</code>.
+     * feeds it to <code>callback</code>. The file is deleted after the callback is completed.
      * @param callback The callback to process the contents of the file, given as a list of lines.
      * @throws InterruptedException If interrupted in sleep call.
      */
