@@ -5,6 +5,9 @@ import java.nio.ByteBuffer;
 
 /**
  * Class: Random
+ *
+ * A replacement for Java's Random which uses /dev/urandom to get random values.
+ *
  * Created by billreh on 6/3/17.
  */
 public class Random {
@@ -15,6 +18,7 @@ public class Random {
     private byte[] randomBytes = new byte[BUF_SIZE];
     private int idx = 0;
 
+    // Use Java's random if /dev/urandom is not available.
     static {
         randomFile = new File("/dev/urandom");
         if(randomFile.exists()) {
@@ -28,6 +32,11 @@ public class Random {
         seedRandom();
     }
 
+    /**
+     * Fill buffer <code>bytes</code> with <code>bytes.length</code> random bytes.
+     *
+     * @param bytes A buffer of random bytes.
+     */
     public void nextBytes(byte[] bytes) {
         if(bytes == null)
             return;
@@ -41,36 +50,68 @@ public class Random {
         }
     }
 
+    /**
+     * @see java.util.Random
+     *
+     * @return a random integer.
+     */
     public int nextInt() {
         if(trueRandom)
             return siphonBytes(4).getInt();
         return random.nextInt();
     }
 
+    /**
+     * @see java.util.Random
+     *
+     * @param bound Upper bound (exclusive).
+     *
+     * @return A random number between 0 (inclusive) and <code>bound</code> (exclusive).
+     */
     public int nextInt(int bound) {
         if(trueRandom)
             return Math.abs(nextInt() % bound);
         return random.nextInt(bound);
     }
 
+    /**
+     * @see java.util.Random
+     *
+     * @return a random long.
+     */
     public long nextLong() {
         if(trueRandom)
             return siphonBytes(8).getLong();
         return random.nextLong();
     }
 
+    /**
+     * @see java.util.Random
+     *
+     * @return a random boolean.
+     */
     public boolean nextBoolean() {
         if(trueRandom)
             return siphonBytes(4).getInt() %2 == 0;
         return random.nextBoolean();
     }
 
+    /**
+     * @see java.util.Random
+     *
+     * @return a random float.
+     */
     public float nextFloat() {
         if(trueRandom)
             return siphonBytes(4).getFloat();
         return random.nextFloat();
     }
 
+    /**
+     * @see java.util.Random
+     *
+     * @return a random double.
+     */
     public double nextDouble() {
         if(trueRandom)
             return siphonBytes(8).getDouble();
