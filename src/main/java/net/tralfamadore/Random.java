@@ -7,7 +7,6 @@ import java.nio.ByteBuffer;
  * Class: Random
  * Created by billreh on 6/3/17.
  */
-@SuppressWarnings("WeakerAccess")
 public class Random {
     private static final int BUF_SIZE = 1024;
     private static java.util.Random random;
@@ -78,6 +77,9 @@ public class Random {
         return random.nextDouble();
     }
 
+    /**
+     * Read a bunch of random bytes into the buffer.
+     */
     private void seedRandom() {
         idx = 0;
 
@@ -99,6 +101,13 @@ public class Random {
 
     }
 
+    /**
+     * Return <code>numBytes</code> bytes in a ByteBuffer.
+     *
+     * @param numBytes The number of bytes to return in the ByteBuffer.
+     *
+     * @return <code>numBytes</code> bytes in a ByteBuffer.
+     */
     private ByteBuffer siphonBytes(int numBytes) {
         if(idx + numBytes >= BUF_SIZE)
             seedRandom();
