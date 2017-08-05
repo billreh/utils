@@ -1,5 +1,6 @@
 package net.tralfamadore;
 
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.Date;
 
@@ -50,5 +51,13 @@ public class DateUtils {
         LocalDate localDateStart = toLocalDate(start);
         LocalDate localDateEnd = toLocalDate(end);
         return Period.between(localDateStart, localDateEnd);
+    }
+
+    public static Date parseDate(String rawDate, String format) {
+        try {
+            return new SimpleDateFormat(format).parse(rawDate);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
