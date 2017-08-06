@@ -4,7 +4,7 @@ package net.tralfamadore;
  * Class: Tuple4
  * Created by billreh on 12/23/16.
  */
-public class Tuple5<T,U,V,W,X> {
+public class Tuple5<T,U,V,W,X> implements Tuple {
     private T value1;
     private U value2;
     private V value3;
@@ -42,6 +42,7 @@ public class Tuple5<T,U,V,W,X> {
         return value5;
     }
 
+    @Override
     public Object produceElement(int i) {
         switch (i) {
             case 1:
