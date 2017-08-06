@@ -18,7 +18,7 @@ public class TestTuple3 {
         Tuple3<String,Integer,List<String>> tuple31 = new Tuple3<>("People", 3, Arrays.asList("Bill", "Snuffy", "Sailor"));
         assertEquals(tuple3, tuple31);
         assertEquals("People", tuple3.getValue1());
-        assertEquals("People", tuple3.produceElement(0));
+        assertEquals("People", tuple3.produceElement(1));
         try {
             tuple3.produceElement(3);
         } catch (Exception e) {
