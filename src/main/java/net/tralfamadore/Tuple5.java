@@ -42,6 +42,26 @@ public class Tuple5<T,U,V,W,X> implements Tuple {
         return value5;
     }
 
+    public void setValue1(T value1) {
+        this.value1 = value1;
+    }
+
+    public void setValue2(U value2) {
+        this.value2 = value2;
+    }
+
+    public void setValue3(V value3) {
+        this.value3 = value3;
+    }
+
+    public void setValue4(W value4) {
+        this.value4 = value4;
+    }
+
+    public void setValue5(X value5) {
+        this.value5 = value5;
+    }
+
     @Override
     public Object produceElement(int i) {
         switch (i) {
