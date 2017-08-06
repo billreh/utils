@@ -20,27 +20,15 @@ public class Tuple2<T,U> {
         return value1;
     }
 
-    public void setValue1(T value1) {
-        this.value1 = value1;
-    }
-
     public U getValue2() {
         return value2;
     }
 
-    public void setValue2(U value2) {
-        this.value2 = value2;
-    }
-
-    public Tuple2<U,T> swap() {
-        return new Tuple2<>(value2, value1);
-    }
-
     public Object produceElement(int i) {
         switch (i) {
-            case 0:
-                return value1;
             case 1:
+                return value1;
+            case 2:
                 return value2;
             default:
                 return new IndexOutOfBoundsException();
