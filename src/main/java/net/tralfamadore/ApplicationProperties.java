@@ -143,6 +143,6 @@ public class ApplicationProperties {
     private static String trim(String str) {
         if(str == null)
             return null;
-        return str.replaceFirst("\\s+", "").trim();
+        return str.replaceFirst("^\\s+", "").trim();
     }
 }
