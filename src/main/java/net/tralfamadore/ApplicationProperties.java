@@ -54,16 +54,32 @@ public class ApplicationProperties {
     }
 
     /**
+     * Get a properties object from the specified properties file.
+     * @param propsFile The name of the properties file to use, without the .properties extension.
+     * @return The property value, or Optional.empty if not found.
+     */
+    public Optional<Properties> getProperties(String propsFile) {
+        Properties props = propertiesCache.getUnchecked(propsFile);
+        if(props == null)
+            return Optional.empty();
+        return Optional.of(props);
+    }
+
+    /**
      * Get a property as a string from the specified properties file.
      * @param propsFile The name of the properties file to use, without the .properties extension.
      * @param name The property name to look up.
      * @return The property value, or Optional.empty if not found.
      */
     public Optional<String> getProperty(String propsFile, String name) {
-        String prop = propertiesCache.getUnchecked(propsFile).getProperty(name);
-        if(prop == null || trim(prop).isEmpty())
-            return Optional.empty();
-        return Optional.of(prop);
+        Optional<Properties> props = getProperties(propsFile);
+        if(props.isPresent()) {
+            String prop = props.get().getProperty(name);
+            if(prop == null || trim(prop).isEmpty())
+                return Optional.empty();
+            return Optional.of(prop);
+        }
+        return Optional.empty();
     }
 
     /**
